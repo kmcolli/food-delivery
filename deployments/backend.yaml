@@ -100,7 +100,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orders
-  namespace:food-delivery
+  namespace: food-delivery
   labels:
     razee/watch-resource: detail
 spec:
