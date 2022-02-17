@@ -1,0 +1,103 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: example-food
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  port:
+    targetPort: 8090
+  to:
+    kind: Service
+    name: example-food
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: apiservice-path-creatorder
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/createOrder"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: apiservice
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: apiservice-path-status
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/status"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: apiservice
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: apiservice-path-restaurants
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/restaurants"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: apiservice
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: apiservice-path-user
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/user"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: apiservice
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: realtimedata-path-events
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/events"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: realtimedata
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: podconsumerdata-path-consumers
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/consumers"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: podconsumerdata
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: favorites-path
+spec:
+  host: example-food-food-delivery.argo-865ffcc72a16e7f393d2878612ad8f9c-0000.us-east.containers.appdomain.cloud
+  path: "/favorites"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: ksql-controller
+---
